@@ -1,0 +1,14 @@
+name: zepto-project
+
+deployments:
+  - name: zepto-test
+    entrypoint: flow_zepto.py:run_batch
+    pull:
+      - prefect.deployments.steps.git_clone:
+          repository: https://github.com/rootski1729/scraper.git
+          branch: main
+      - prefect.deployments.steps.pip_install_requirements:
+          requirements_file: requirements.txt
+    work_pool:
+      name: test-managed
+    parameters: {}
