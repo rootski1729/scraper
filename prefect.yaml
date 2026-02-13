@@ -10,6 +10,7 @@ deployments:
           branch: main
 
       - prefect.deployments.steps.pip_install_requirements:
+          directory: scraper
           requirements_file: requirements.txt
 
     work_pool:
