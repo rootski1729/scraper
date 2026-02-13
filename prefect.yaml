@@ -6,11 +6,12 @@ deployments:
 
     pull:
       - prefect.deployments.steps.git_clone:
+          id: clone-step
           repository: https://github.com/rootski1729/scraper.git
           branch: main
 
       - prefect.deployments.steps.pip_install_requirements:
-          requirements_file: scraper/requirements.txt
+          requirements_file: "{{ clone-step.directory }}/requirements.txt"
 
     work_pool:
       name: test-managed
@@ -18,4 +19,3 @@ deployments:
     parameters:
       products: []
       chunk_size: 1000
-
