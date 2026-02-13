@@ -11,4 +11,6 @@ deployments:
           requirements_file: requirements.txt
     work_pool:
       name: test-managed
-    parameters: {}
+    parameters:
+      products: []
+      chunk_size: 1000
