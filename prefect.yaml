@@ -10,8 +10,7 @@ deployments:
           branch: main
 
       - prefect.deployments.steps.pip_install_requirements:
-          directory: scraper
-          requirements_file: requirements.txt
+          requirements_file: scraper/requirements.txt
 
     work_pool:
       name: test-managed
@@ -19,3 +18,4 @@ deployments:
     parameters:
       products: []
       chunk_size: 1000
+
